@@ -86,28 +86,28 @@
     - [x] npm install --yes
     - [x] npm install express
     - [x] npm install pg
-    - [] npm install nodemon (optional)
+    - [x] npm install nodemon (optional)
 
 2. folders
-    - `server`
-        - `modules`
-            - pool.js
-        - server.js
-        - `routers`
-            - name.router.js
+   [x] - `server`
+       [x] - `modules`
+           [x] - pool.js
+       [x] - server.js
+       [x] - `routers`
+           [] - name.router.js
     
-    - `public` 
-        - `css`
-            - styles.css 
-        - html (index)
-        - `script` 
-            - client.js
-        - `vendors`
-            - jQuery 
+   [x] - `public` 
+       [x] - `css`
+           [x] - styles.css 
+       [x] - html (index)
+       [x] - `script` 
+           [x] - client.js
+       [x] - `vendors`
+            [x]- jQuery 
 
-3. `database.sql` 
+3. `database.sql` [x]
 
-4. `.gitignore`
+4. `.gitignore` [x]
     node_modules/
     *.log
     .DS_Store
