@@ -9,23 +9,18 @@ router.post('/add-task',  (req, res) => {
     console.log('res body.data: ', req.body.data); // then check the data
     let taskName = req.body.data;
 
-    // let newTask = {
-    //   isComplete: false,
-    //   name: taskName,
-    // }
+    let queryText = `INSERT INTO "tasks" ("is_complete", "name")
+                     VALUES ($1, $2);`;
+    pool.query(queryText, [ false , taskName ])
+      .then(result => {
+        console.log('test if result is complete', result);
+        res.sendStatus(201);
 
-    res.sendStatus(201); // created 
-  
-    // let queryText = `INSERT INTO "books" ("author", "title")
-    //                  VALUES ($1, $2);`;
-    // pool.query(queryText, [newBook.author, newBook.title])
-    //   .then(result => {
-    //     res.sendStatus(201);
-    //   })
-    //   .catch(error => {
-    //     console.log(`Error adding new book`, error);
-    //     res.sendStatus(500);
-    //   });
+      })
+      .catch(error => {
+        console.log(`Error adding new task`, error);
+        res.sendStatus(500);
+      });
   });
 
 
