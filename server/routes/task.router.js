@@ -47,6 +47,21 @@ router.post('/add-task',  (req, res) => {
 });
 
 
+router.delete('/:id', (req, res) => {
+  const queryText = `DELETE FROM tasks WHERE id = $1;`;
+
+  const queryParams = [req.params.id];
+
+  pool.query(queryText, queryParams)
+  .then((dbRes) => { 
+      res.sendStatus(204); // NO CONTACT STATUS
+  })
+  .catch((error) => { 
+      console.log(`Error making query: ${queryText}`, error);
+      res.sendStatus(500);
+  });
+});
+
 
 // export router (get import to server side)
 module.exports = router;

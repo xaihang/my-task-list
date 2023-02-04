@@ -28,7 +28,7 @@ function onReady() {
   });
 
   $(document).on('click', '.deleteBtn', onDeleteTask);
-  
+
   getTaskList();
 }
 
@@ -118,34 +118,33 @@ function getTaskList() {
 }
 
 function onDeleteTask() {
-
   console.log('in onDeleteTask', $(this));
   let id = $(this).closest('li').data('id');
-console.log('id is == ', id);
+  console.log('id is == ', id);
 
   $.ajax({
     method: 'DELETE',
     url: `/task/${id}`,
   })
     .then(function (response) {
-      render();
+      getTaskList();
     })
     .catch((error) => {
       console.log('DELETE /tasks failed');
     });
 }
 
-
-
 function render() {
-  console.log('rendering');
+    $('#task-list').empty();
 
   for (let i = 0; i < displayTaskList.length; i++) {
     let currentTask = displayTaskList[i];
     $('#task-list').append(`
             <li data-id=${currentTask.id}
                 class="list-group-item d-flex justify-content-between align-items-center border-start-0 border-top-0 border-end-0 border-bottom rounded-0 mb-2">
-                <div class="${currentTask.is_complete ? 'completed' : 'incomplete'}" class="d-flex align-items-center">
+                <div class="${
+                  currentTask.is_complete ? 'completed' : 'incomplete'
+                }" class="d-flex align-items-center">
                     ${currentTask.name}
                 </div>
                 <i class="deleteBtn fa fa-trash text-danger"></i>
@@ -153,5 +152,5 @@ function render() {
           `);
   }
 
-}
 
+}
