@@ -20,7 +20,7 @@
 </head>
 <body>
 
-  <section class="vh-100 gradient-custom">
+  <section class="gradient-custom">
     <div class="container py-5 h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col col-xl-10">
@@ -34,28 +34,32 @@
                 </div>
                 <button type="submit" id="addBtn" class="btn btn-outline-primary ms-2">Add</button>
               </form>
-  
+
+
+
               <!-- Tabs navs -->
-              <ul class="nav nav-tabs mb-4 pb-2" id="ex1" role="tablist">
-                <li class="nav-item" role="presentation">
-                  <a class="nav-link active" id="all-tab" data-mdb-toggle="tab" href="#all-content" role="tab"
-                    aria-controls="all-content" aria-selected="true">All</a>
+              <ul class="nav nav-tabs mb-4 pb-2" id="task-tabs">
+                <li class="nav-item">
+                  <a class="nav-link active" id="all-tab" aria-selected="true">All</a>
                 </li>
-                <li class="nav-item" role="presentation">
-                  <a class="nav-link" id="active-tab" data-mdb-toggle="tab" href="#active-content" role="tab"
-                    aria-controls="active-content" aria-selected="false">Active</a>
+                <li class="nav-item">
+                  <a class="nav-link" id="active-tab" aria-selected="false">Active</a>
                 </li>
-                <li class="nav-item" role="presentation">
-                  <a class="nav-link" id="complete-tab" data-mdb-toggle="tab" href="#complete-content" role="tab"
-                    aria-controls="complete-content" aria-selected="false">Completed</a>
+                <li class="nav-item">
+                  <a class="nav-link" id="complete-tab" aria-selected="false">Completed</a>
                 </li>
               </ul>
               <!-- Tabs navs -->
   
               <!-- Tabs content -->
-              <div class="tab-content" id="ex1-content">
+              <div class="tab-content" id="task-content">
+                <div id="task-pane">
+                  <ul class="list-group mb-0" id="task-list">
+                    <!-- Display TaskLists here  -->
+                  </ul>
+                </div>
 
-                <div class="tab-pane fade show active" id="all-content" role="tabpanel"
+                <!-- <div class="tab-pane fade show active" id="all-content" role="tabpanel"
                   aria-labelledby="all-tab">
                     <ul class="list-group mb-0">
                       <li
@@ -71,19 +75,8 @@
                         
                       </li>
                     </ul>
-                </div>
+                </div> -->
 
-                <div class="tab-pane fade" id="active-content" role="tabpanel"
-                  aria-labelledby="active-tab">
-                  Tab 2
-                </div>
-
-                <div class="tab-pane fade" id="complete-content" role="tabpanel"
-                  aria-labelledby="complete-tab">
-                  Tab 3
-                </div>
-
-                
               </div>
 
             </div>

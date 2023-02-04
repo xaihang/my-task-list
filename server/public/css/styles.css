@@ -22,3 +22,7 @@ body {
   .btn:hover {
     background-color: RoyalBlue;
   }
+
+  .completed {
+    text-decoration: line-through;
+  }
