@@ -11,7 +11,6 @@
     * [server.js](#folder-serverserverjs)
     * [routers](#folder-serverrouters)
     * [modules](#folder-servermodulespooljs)
-    
 4. [GitHub merge/branch](#github-pullmerge)
 5. [go to README](./README.md)
 6. [go to official instruction](https://github.com/PrimeAcademy/weekend-sql-to-do-list/blob/main/INSTRUCTIONS.md)
@@ -22,18 +21,18 @@
 ### <ins>HTML + with Bootstrap</ins>
 - *UI that allow user to create a task on front end*
     * [] input text field
-    * [] button: add new task
-    * [] button: delete task
+    * [x] button: add new task
+  
 
 
 ### <ins>CSS + with Bootstrap</ins>
 *When a task is done, it should look different on the UI. This is done using CSS and connected to the code that determines if the task is done*
-    * [] background color, must have 
-    * [] font family, must have
+    * [x] background color, must have 
+    * [x] font family, must have
     * [] font size, must have  
     * [] input/task crossed out when task is completed 
     * [] additionally, input/task should also changed background color to a different color when complete
-    * [] responsive website application
+    * [x] responsive website application
 
 
 ### <ins>CLIENT + SERVER + DATABASE</ins>
@@ -45,18 +44,23 @@
 *When a task is created the front end should refresh to show all tasks that needs to be complete.*
     * [] `GET`req/res from client to server to retrieve the data stored from previous POST request. 
     * [] server will access router for `GET`req/res (should be connected to module (pool.js) aka communication with the database SQL and store data there)
-    * [] render() to append new task(s)
+    * [] render() to append 
+         -- [] new task
+         -- [] button: delete task - dynamic added with each task  <button class="btn"><i class="fa fa-trash"></i></button> 
+
 
 
 *Each task should have an option to 'complete'*
     * [] `PUT`req/res from client to server wth unique ID 
     * [] server will access router for `PUT` req/res (should be connected to module (pool.js) aka communication with the database SQL and also update data there)
+    * [] when the checkbox is clicked - `this` task will `update` the task by creating a visual change in the input with strike through text appearance and maybe turned the background color 2 shade grey??? 
    
 
 *Each task should have an option to 'delete'*
     * [] `DELETE` from client to server wth unique ID 
     * [] server will access router for `DELETE` req/res (should be connected to module (pool.js) aka communication with the database SQL)
     * [] Deleting a Task should remove it BOTH from the front end as well as the Database.
+
 
 
 [] *Any tasks that is COMPLETE or INCOMPLETE should remain on the database (unless deleted)*
@@ -177,7 +181,7 @@
     ```js
         const express = require('express');
         const bodyParser = require('body-parser');
-        const booksRouter = require('./routes/book.router.js');
+        const nameOfRouter = require('./routes/book.router.js');
         const app = express();
     ```
 
@@ -199,12 +203,16 @@
     console.log('listening on port', PORT);
     });
     ```
+5. connect app with the router
+    ```js
+    app.use(mainRoute);
+    ```
 
-5. UNLESS you have 'Routers', otherwise CRUD goes here (req/res = POST, GET, UPDATE, DELETE) goes here!
+6. UNLESS you have 'Routers', otherwise CRUD goes here (req/res = POST, GET, UPDATE, DELETE) goes here!
 
 ----
 
-## folder: server/routers/
+## folder: server/routes/
 1.  import express, router, and pool modules
     ```js
     const express = require('express');

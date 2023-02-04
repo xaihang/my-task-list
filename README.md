@@ -1,4 +1,4 @@
-# Calculator - server side 
+# To-do List
 
 ## Description
 
@@ -22,7 +22,7 @@ Please visit the site to view its full functionality: [DEPLOYED VERSION OF APP](
 ----
 ## Screen Shot
 
-![calculator - server side](/images/screenshot.gif)
+![To-do application demo](/images/screenshot.gif)
 
 
 ----
@@ -31,6 +31,8 @@ Please visit the site to view its full functionality: [DEPLOYED VERSION OF APP](
 * Javascript
 * HTML
 * CSS
+* [Awesome Fonts](https://fontawesome.com/)
+* [Google Fonts](https://fonts.google.com/)
 * [Bootstrap](https://getbootstrap.com/)
 * [Node js](https://nodejs.org/en/about/)
 * [Express js](https://expressjs.com/)
