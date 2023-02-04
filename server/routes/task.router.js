@@ -24,6 +24,29 @@ router.post('/add-task',  (req, res) => {
   });
 
 
+  router.get('/get-task-list', (req, res) => {
+   
+    // insert this code to grab the tasks from the db
+    let queryText = 'SELECT * FROM "tasks";';
+    
+    pool.query(queryText)
+    .then((result) => {
+        
+        // array of object that gets return in that query
+        let payload = {
+          data: result.rows
+        }
+
+        console.log('My payload:', payload);
+        res.send(payload);
+    })
+    .catch((error) => {
+        console.log(`error making query ${queryText}`, error);
+        res.sendStatus(500)
+    })
+});
+
+
 
 // export router (get import to server side)
 module.exports = router;
