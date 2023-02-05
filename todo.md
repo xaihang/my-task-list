@@ -20,7 +20,7 @@
 
 ### <ins>HTML + with Bootstrap</ins>
 - *UI that allow user to create a task on front end*
-    * [] input text field
+    * [x] input text field
     * [x] button: add new task
   
 
@@ -29,41 +29,42 @@
 *When a task is done, it should look different on the UI. This is done using CSS and connected to the code that determines if the task is done*
     * [x] background color, must have 
     * [x] font family, must have
-    * [] font size, must have  
-    * [] input/task crossed out when task is completed 
-    * [] additionally, input/task should also changed background color to a different color when complete
-    * [x] responsive website application
+    * [x] font size, must have  
+    * [x] input/task crossed out when task is completed 
+    
 
 
 ### <ins>CLIENT + SERVER + DATABASE</ins>
 *When a task is created the front end it should be able to store data inside the database* 
-    * [] `POST`req/res from client to server 
-    * [] server will access router for `POST`req/res (should be connected to module (pool.js) aka communication with the database SQL and add to database there)
+    * [x] `POST`req/res from client to server 
+    * [x] server will access router for `POST`req/res (should be connected to module (pool.js) aka communication with the database SQL and add to database there)
 
 
 *When a task is created the front end should refresh to show all tasks that needs to be complete.*
-    * [] `GET`req/res from client to server to retrieve the data stored from previous POST request. 
-    * [] server will access router for `GET`req/res (should be connected to module (pool.js) aka communication with the database SQL and store data there)
-    * [] render() to append 
-         -- [] new task
-         -- [] button: delete task - dynamic added with each task  <button class="btn"><i class="fa fa-trash"></i></button> 
+    * [x] `GET`req/res from client to server to retrieve the data stored from previous POST request. 
+    * [x] server will access router for `GET`req/res (should be connected to module (pool.js) aka communication with the database SQL and store data there)
+    * [x] render() to append 
+         -- [x] new task
+         -- [x] buttons: delete & complete - dynamic added with each task 
+ 
 
 
 
 *Each task should have an option to 'complete'*
-    * [] `PUT`req/res from client to server wth unique ID 
-    * [] server will access router for `PUT` req/res (should be connected to module (pool.js) aka communication with the database SQL and also update data there)
-    * [] when the checkbox is clicked - `this` task will `update` the task by creating a visual change in the input with strike through text appearance and maybe turned the background color 2 shade grey??? 
+    * [x] `PUT`req/res from client to server wth unique ID 
+    * [x] server will access router for `PUT` req/res (should be connected to module (pool.js) aka communication with the database SQL and also update data there)
+    * [x] when the checkbox is clicked - `this` task will `update` the task by creating a visual change in the input with strike through text appearance
+    * [] additionally, complete button should also changed background color to green when task is complete
    
 
 *Each task should have an option to 'delete'*
-    * [] `DELETE` from client to server wth unique ID 
-    * [] server will access router for `DELETE` req/res (should be connected to module (pool.js) aka communication with the database SQL)
-    * [] Deleting a Task should remove it BOTH from the front end as well as the Database.
+    * [x] `DELETE` from client to server wth unique ID 
+    * [x] server will access router for `DELETE` req/res (should be connected to module (pool.js) aka communication with the database SQL)
+    * [x] Deleting a Task should remove it BOTH from the front end as well as the Database.
 
 
 
-[] *Any tasks that is COMPLETE or INCOMPLETE should remain on the database (unless deleted)*
+[x] *Any tasks that is COMPLETE or INCOMPLETE should remain on the database (unless deleted)*
 
 
 <br>
@@ -71,14 +72,17 @@
 ----
 
 ## STRETCH GOALS (*my selective of choices*)
-1. Practice git branching with each of the task listed above 
+1. [x] Practice git branching with each of the task listed above 
 
-2. Style with bootstrap 
+2. [x] Style with bootstrap 
 
-3. IF TIME ALLOW: `feature-confirm-delete`
-     - []  In whatever fashion you would like, create an 'are you sure: yes / no' option when deleting a task.
-        - Some styled options are [Bootstrap Modal](https://getbootstrap.com/docs/4.0/components/modal/) or [Sweet Alerts](https://sweetalert.js.org/guides/): Use the CDN option.
+3. [x] Buttons -- make completion buttons green and the delete red.
 
+4. [x] `feature-confirm-delete`
+     - create an 'are you sure: yes / no' option when deleting a task.
+     [Sweet Alerts](https://sweetalert.js.org/guides/): Use the CDN option.
+
+5. [x] responsive website application
 
 <br>
 

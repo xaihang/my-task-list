@@ -33,6 +33,7 @@ Please visit the site to view its full functionality: [DEPLOYED VERSION OF APP](
 * CSS
 * [Awesome Fonts](https://fontawesome.com/)
 * [Google Fonts](https://fonts.google.com/)
+* [Sweet Alert](https://sweetalert.js.org/guides/)
 * [Bootstrap](https://getbootstrap.com/)
 * [Node js](https://nodejs.org/en/about/)
 * [Express js](https://expressjs.com/)

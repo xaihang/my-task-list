@@ -2,7 +2,7 @@ $(document).ready(onReady);
 
 let taskList = [];
 let displayTaskList = [];
-let filterTask = 'all';
+let filterStatus = 'all';
 
 function onReady() {
   $('#addBtn').on('click', addTask);
@@ -12,19 +12,22 @@ function onReady() {
     event.preventDefault();
     removeActiveClass();
     $('#all-tab').addClass('active');
-    filterTask = 'all';
+    filterStatus = 'all';
+    filterTaskList();
   });
   $('#active-tab').on('click', (event) => {
     event.preventDefault();
     removeActiveClass();
     $('#active-tab').addClass('active');
-    filterTask = 'active';
+    filterStatus = 'active';
+    filterTaskList();
   });
   $('#complete-tab').on('click', (event) => {
     event.preventDefault();
     removeActiveClass();
     $('#complete-tab').addClass('active');
-    filterTask = 'complete';
+    filterStatus = 'complete';
+    filterTaskList();
   });
 
   $(document).on('click', '.deleteBtn', onDeleteTask);
@@ -39,7 +42,7 @@ function removeActiveClass() {
 
 function filterTaskList() {
   displayTaskList = [];
-  switch (filterTaskList) {
+  switch (filterStatus) {
     case 'complete':
       taskList.map((currentTask) => {
         if (currentTask.is_complete === true) {
@@ -60,8 +63,6 @@ function filterTaskList() {
       displayTaskList = taskList;
       break;
   }
-
-  //   console.log('reach ------', displayTaskList);
   render();
 }
 
@@ -86,6 +87,8 @@ function addTask(event) {
     .catch((error) => {
       console.log('Error in POST', error);
     });
+
+  $('#taskInput').val('');
 }
 
 function getTaskList() {
@@ -114,34 +117,47 @@ function onDeleteTask() {
     .catch((error) => {
       console.log('DELETE /tasks failed');
     });
+
+    swal({
+        title: 'Are you sure?',
+        text: 'Once deleted, you will NOT be able to recover this task!',
+        icon: 'warning',
+        buttons: true,
+        dangerMode: true,
+      }).then((willDelete) => {
+        if (willDelete) {
+          swal('Poof! Your task is deleted!', {
+            icon: 'success',
+          });
+        } else {
+          swal('Your task is safe!');
+        }
+      });
 }
-
-
 
 function onCompleteTask() {
-    console.log('in isComplete', $(this));
-    
-    let id = $(this).closest('li').data('id');
-    let is_complete = $(this).data('isComplete');
+  console.log('in isComplete', $(this));
 
-    $.ajax({
-        method: 'PUT',
-        url: `/task/${id}`,
-        data: {
-            data: !is_complete
-        }
+  let id = $(this).closest('li').data('id');
+  let is_complete = $(this).data('isComplete');
+
+  $.ajax({
+    method: 'PUT',
+    url: `/task/${id}`,
+    data: {
+      data: !is_complete,
+    },
+  })
+    .then(() => {
+      getTaskList();
     })
-        .then(() => {
-            getTaskList();
-        })
-        .catch((err) => {
-            console.error('PUT failed', err);
-        })
+    .catch((err) => {
+      console.error('PUT failed', err);
+    });
 }
 
-
 function render() {
-    $('#task-list').empty();
+  $('#task-list').empty();
 
   for (let i = 0; i < displayTaskList.length; i++) {
     let currentTask = displayTaskList[i];
@@ -154,10 +170,14 @@ function render() {
                     ${currentTask.name}
                 </div>
                 <div>
-                <button data-is-complete=${currentTask.is_complete} class="completeBtn">
-                    ${currentTask.is_complete ? 'complete' : 'incomplete'}
-                </button>
-                <i class="deleteBtn fa fa-trash text-danger"></i>
+                    <button data-is-complete=${
+                      currentTask.is_complete
+                    } type="button" class="completeBtn btn ${
+      currentTask.is_complete ? 'btn-success' : 'btn-outline-success'
+    } btn-rounded" data-mdb-ripple-color="dark">${
+      currentTask.is_complete ? 'complete' : 'incomplete'
+    }</button>
+                    <button type="button" class="deleteBtn btn btn-outline-danger btn-rounded" data-mdb-ripple-color="dark">Delete</button>
                 </div>
                 
             </li>
