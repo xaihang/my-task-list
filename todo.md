@@ -24,48 +24,39 @@
     * [x] button: add new task
   
 
-
 ### <ins>CSS + with Bootstrap</ins>
 *When a task is done, it should look different on the UI. This is done using CSS and connected to the code that determines if the task is done*
     * [x] background color, must have 
     * [x] font family, must have
     * [x] font size, must have  
     * [x] input/task crossed out when task is completed 
-    
 
 
 ### <ins>CLIENT + SERVER + DATABASE</ins>
 *When a task is created the front end it should be able to store data inside the database* 
-    * [x] `POST`req/res from client to server 
-    * [x] server will access router for `POST`req/res (should be connected to module (pool.js) aka communication with the database SQL and add to database there)
-
+    * [x] `POST`req/res from client to server -> server via router -> to database; add new task to database
 
 *When a task is created the front end should refresh to show all tasks that needs to be complete.*
-    * [x] `GET`req/res from client to server to retrieve the data stored from previous POST request. 
-    * [x] server will access router for `GET`req/res (should be connected to module (pool.js) aka communication with the database SQL and store data there)
+    * [x] `GET`req/res from client to server -> server via router -> to database; retrieve task list and respond back with task list to server --> server will provide client with the update by displaying task list on the DOM
     * [x] render() to append 
          -- [x] new task
-         -- [x] buttons: delete & complete - dynamic added with each task 
- 
-
+         -- [x] buttons: delete & complete - dynamic added with each task with functionality 
 
 
 *Each task should have an option to 'complete'*
-    * [x] `PUT`req/res from client to server wth unique ID 
-    * [x] server will access router for `PUT` req/res (should be connected to module (pool.js) aka communication with the database SQL and also update data there)
-    * [x] when the checkbox is clicked - `this` task will `update` the task by creating a visual change in the input with strike through text appearance
-    * [] additionally, complete button should also changed background color to green when task is complete
+    * [x] `PUT`req/res with `unique ID` from client to server -> server via router -> to database to update task (toggle complete button) 
+        -- [x] when task is complete - it will `update` a strike through the task name
+        -- [x] if task is complete the background color will change to solid green 
    
 
 *Each task should have an option to 'delete'*
-    * [x] `DELETE` from client to server wth unique ID 
-    * [x] server will access router for `DELETE` req/res (should be connected to module (pool.js) aka communication with the database SQL)
-    * [x] Deleting a Task should remove it BOTH from the front end as well as the Database.
+    * [x] `DELETE` req/res with `unique ID` from client to server -> server via router -> to database to permanently remove data from database 
+      -- [x] Deleting a Task will remove it from the front end as well as the Database.
+      -- [x] an alert will be prompt to confirm deletion 
 
 
-
-[x] *Any tasks that is COMPLETE or INCOMPLETE should remain on the database (unless deleted)*
-
+*Any tasks that is COMPLETE or INCOMPLETE should remain on the database (unless deleted)*
+    * [x] filter tabs - can be filter via tabs of all, active, or complete status
 
 <br>
 
@@ -154,28 +145,24 @@
 3. inside the root folder: `database.sql`
 * this is where your database instruction go! See examples below:
     ```js
-    CREATE TABLE "books" (
+    CREATE TABLE "tasks" (
         "id" SERIAL PRIMARY KEY,
-        "title" VARCHAR (250) NOT NULL,
-        "author" VARCHAR (100) NOT NULL,
-        "published" DATE,
-    "isRead" BOOLEAN DEFAULT FALSE
-    );
+        "name" VARCHAR(200) NOT NULL,
+        "is_complete" BOOLEAN DEFAULT FALSE);
     ```
-
     ```js
     INSERT INTO "books" 
 	("title", "author", "published") 
      ```
     ```js
+    INSERT INTO "tasks" ("name", "is_complete")
     VALUES 
-	('Another Brooklyn', 'Jacqueline Woodson', '8-9-2016', true),
-	('Another Brooklyn', 'Jacqueline Woodson', '8-9-2016'),
-	('The Girl on the Train', 'Paula Hawkins', '1-13-2015'),
-	('Scandalous Behavior', 'Stuart Woods', '1-5-2016')
+    ('buy oat milk', false),
+    ('grind coffee bean', false),
+    ('get starbucks', false);
     ```
     ```js
-    SELECT * FROM "books";
+    SELECT * FROM "tasks";
     ```
    
 ----
@@ -185,7 +172,7 @@
     ```js
         const express = require('express');
         const bodyParser = require('body-parser');
-        const nameOfRouter = require('./routes/book.router.js');
+        const taskRoute = require('./routes/task.router.js');
         const app = express();
     ```
 
@@ -200,19 +187,18 @@
     app.use(express.static('server/public'))
     ```
 
-4. Start listening for requests on a specific port
+4. connect app with the router
+    ```js
+    app.use('/task', taskRoute);
+    ```
+
+5. Start listening for requests on a specific port
     ```js
     const PORT = process.env.PORT || 5000;
     app.listen(PORT, () => {
     console.log('listening on port', PORT);
     });
     ```
-5. connect app with the router
-    ```js
-    app.use(mainRoute);
-    ```
-
-6. UNLESS you have 'Routers', otherwise CRUD goes here (req/res = POST, GET, UPDATE, DELETE) goes here!
 
 ----
 
@@ -223,7 +209,7 @@
     const router = express.Router();
     const pool = require('../modules/pool');
     ```
-2. CRUD goes here (req/res = POST, GET, UPDATE, DELETE) goes here!
+2. CRUD between server and database (req/res = POST, GET, UPDATE, DELETE) goes here!
 
 3. export router (get import to server side)
     ```js
@@ -236,7 +222,11 @@
     ```js
     const pg = require('pg');
     ```
-2. setup environment
+2. setup environment:
+    * name of the database
+    * the location of the database within the network
+    * the port to listen to
+
     ```js
     const pool = new pg.Pool({
         database: 'weekend-to-do-app',

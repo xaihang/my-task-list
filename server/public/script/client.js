@@ -175,7 +175,7 @@ function render() {
                     } type="button" class="completeBtn btn ${
       currentTask.is_complete ? 'btn-success' : 'btn-outline-success'
     } btn-rounded" data-mdb-ripple-color="dark">${
-      currentTask.is_complete ? 'complete' : 'incomplete'
+      currentTask.is_complete ? 'Complete' : 'Incomplete'
     }</button>
                     <button type="button" class="deleteBtn btn btn-outline-danger btn-rounded" data-mdb-ripple-color="dark">Delete</button>
                 </div>

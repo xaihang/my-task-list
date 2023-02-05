@@ -1,13 +1,12 @@
 CREATE TABLE "tasks" (
     "id" SERIAL PRIMARY KEY,
-    "is_complete" BOOLEAN DEFAULT FALSE,
-    "name" VARCHAR(200) NOT NULL
-);
+    "name" VARCHAR(200) NOT NULL,
+    "is_complete" BOOLEAN DEFAULT FALSE);
 
-INSERT INTO "tasks" ("is_complete", "name")
+INSERT INTO "tasks" ("name", "is_complete")
 VALUES 
-(false, 'buy oat milk'),
-(false, 'get qtips'),
-(false, 'make hmong peppers');
+('buy oat milk', false),
+('grind coffee bean', false),
+('get starbucks', false);
 
 SELECT * FROM "tasks";
