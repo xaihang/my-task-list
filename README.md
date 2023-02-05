@@ -1,4 +1,4 @@
-# To-do List
+# My Task List
 
 ## Description
 
@@ -26,7 +26,6 @@ This to-do application will create a front-end experience for task management. U
 * Javascript
 * HTML
 * CSS
-* [Awesome Fonts](https://fontawesome.com/)
 * [Google Fonts](https://fonts.google.com/)
 * [Sweet Alert](https://sweetalert.js.org/guides/)
 * [Bootstrap](https://getbootstrap.com/)
