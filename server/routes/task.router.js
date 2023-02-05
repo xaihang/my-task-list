@@ -63,5 +63,21 @@ router.delete('/:id', (req, res) => {
 });
 
 
+router.put('/:id', (req, res) => {
+  
+  const queryText = `UPDATE tasks SET is_complete = $1 WHERE id = $2;`;
+
+  const queryParams = [ req.body.data, req.params.id];
+
+  pool.query(queryText, queryParams)
+  .then((dbRes) => { 
+      res.sendStatus(204); // NO CONTACT STATUS
+  })
+  .catch((error) => { 
+      console.log(`Error making query: ${queryText}`, error);
+      res.sendStatus(500);
+  });
+});
+
 // export router (get import to server side)
 module.exports = router;

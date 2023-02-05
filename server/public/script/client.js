@@ -28,6 +28,7 @@ function onReady() {
   });
 
   $(document).on('click', '.deleteBtn', onDeleteTask);
+  $(document).on('click', '.completeBtn', onCompleteTask);
 
   getTaskList();
 }
@@ -95,25 +96,6 @@ function getTaskList() {
     console.log('GET /task list response', result.data);
     taskList = result.data;
     filterTaskList();
-
-    // append data to the DOM
-    // for (let i = 0; i < taskList.length; i++) {
-    //   $('.card-box').append(`
-    //             <tr data-id=${taskList[i].id}>
-    //                 <td>${taskList[i].name}</td>
-    //                 <td>${taskList[i].track}</td>
-    //                 <td>
-    //                     ${response[i].rank}
-    //                     <button class="upvotebtn">🔼</button>
-    //                     <button class="downvotebtn">🔽</button>
-    //                 </td>
-    //                 <td>${response[i].published}</td>
-    //                 <td>
-    //                     <button class="deleteSongBtn">delete</button>
-    //                 </td>
-    //             </tr>
-    //         `);
-    // }
   });
 }
 
@@ -134,6 +116,30 @@ function onDeleteTask() {
     });
 }
 
+
+
+function onCompleteTask() {
+    console.log('in isComplete', $(this));
+    
+    let id = $(this).closest('li').data('id');
+    let is_complete = $(this).data('isComplete');
+
+    $.ajax({
+        method: 'PUT',
+        url: `/task/${id}`,
+        data: {
+            data: !is_complete
+        }
+    })
+        .then(() => {
+            getTaskList();
+        })
+        .catch((err) => {
+            console.error('PUT failed', err);
+        })
+}
+
+
 function render() {
     $('#task-list').empty();
 
@@ -147,10 +153,14 @@ function render() {
                 }" class="d-flex align-items-center">
                     ${currentTask.name}
                 </div>
+                <div>
+                <button data-is-complete=${currentTask.is_complete} class="completeBtn">
+                    ${currentTask.is_complete ? 'complete' : 'incomplete'}
+                </button>
                 <i class="deleteBtn fa fa-trash text-danger"></i>
+                </div>
+                
             </li>
           `);
   }
-
-
 }
