@@ -7,7 +7,6 @@ This to-do application will create a front-end experience for task management. U
 </br>
 
 >**TABLE OF CONTENT:**
-1. [Deployed link](#deployed-link) 
 1. [Tasks & Installations](/todo.md)
 1. [Screen shot](#screen-shot)
 1. [Technologies utilization](#technologies-utilization) 
@@ -15,14 +14,10 @@ This to-do application will create a front-end experience for task management. U
 
 </br>
 
------
-## Deployed link via Heroku
-Please visit the site to view its full functionality: [DEPLOYED VERSION OF APP](https://weekend-jquery-server-calc.herokuapp.com/)
-
 ----
-## Screen Shot
+## Demo
 
-![To-do application demo](/images/screenshot.gif)
+![To-do application demo](/server/public/images/screenshot.gif)
 
 
 ----
