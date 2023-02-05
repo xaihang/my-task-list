@@ -2,7 +2,7 @@
 
 ## Description
 
-This to-do application will create a front-end experience for task management. Users can create tasks that will be stored in an SQL database. The front-end will display all tasks to be completed and provide options to complete or delete them. Upon completion, the task's visual representation will change on the front-end and the completion status will be updated in the database. The delete option will remove the task from both the front-end and database.
+My task list application will create a front-end experience for task management. Users can create tasks that will be stored in an SQL database. The front-end will display all tasks to be completed and provide options to complete or delete them. Upon completion, the task's visual representation will change on the front-end and the completion status will be updated in the database. The delete option will remove the task from both the front-end and database.
 
 </br>
 
