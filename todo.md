@@ -81,27 +81,26 @@
 
 ## setups:
 1. installation
-    - [x] npm init --yes (if package JSON IS NOT present on repo)
-    - [x] npm install --yes
+    - [x] npm init -y (if package JSON IS NOT present on repo)
     - [x] npm install express
     - [x] npm install pg
     - [x] npm install nodemon (optional)
 
 2. folders
-   [x] - `server`
-       [x] - `modules`
+   [x] - `server/`
+       [x] - `modules/`
            [x] - pool.js
        [x] - server.js
-       [x] - `routers`
+       [x] - `routers/`
            [] - name.router.js
     
-   [x] - `public` 
-       [x] - `css`
+   [x] - `public/` 
+       [x] - `css/`
            [x] - styles.css 
        [x] - html (index)
-       [x] - `script` 
+       [x] - `script/` 
            [x] - client.js
-       [x] - `vendors`
+       [x] - `vendors/`
             [x]- jQuery 
 
 3. `database.sql` [x]
@@ -150,10 +149,6 @@
         "name" VARCHAR(200) NOT NULL,
         "is_complete" BOOLEAN DEFAULT FALSE);
     ```
-    ```js
-    INSERT INTO "books" 
-	("title", "author", "published") 
-     ```
     ```js
     INSERT INTO "tasks" ("name", "is_complete")
     VALUES 
