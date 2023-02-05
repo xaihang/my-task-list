@@ -39,30 +39,30 @@
 - *When a task is created the front end should refresh to show all tasks that needs to be complete.*
     * [x] `GET`req/res from client to server -> server via router -> to database; retrieve task list and respond back with task list to server --> server will provide client with the update by displaying task list on the DOM
     * [x] render() to append 
-         -- [x] new task
-         -- [x] buttons: delete & complete - dynamic added with each task with functionality 
+         - [x] new task
+         - [x] buttons: delete & complete - dynamic added with each task with functionality 
 
 
 - *Each task should have an option to 'complete'*
     * [x] `PUT`req/res with `unique ID` from client to server -> server via router -> to database to update task (toggle complete button) 
-        -- [x] when task is complete - it will `update` a strike through the task name
-        -- [x] if task is complete the background color will change to solid green 
+        - [x] when task is complete - it will `update` a strike through the task name
+        - [x] if task is complete the background color will change to solid green 
    
 
 - *Each task should have an option to 'delete'*
     * [x] `DELETE` req/res with `unique ID` from client to server -> server via router -> to database to permanently remove data from database 
-      -- [x] Deleting a Task will remove it from the front end as well as the Database.
-      -- [x] an alert will be prompt to confirm deletion 
+      - [x] Deleting a Task will remove it from the front end as well as the Database.
+      - [x] an alert will be prompt to confirm deletion 
 
 
 - *Any tasks that is COMPLETE or INCOMPLETE should remain on the database (unless deleted)*
-    * [x] filter tabs - can be filter via tabs of all, active, or complete status
+    - [x] filter tabs - can be filter via tabs of all, active, or complete status
 
 <br>
 
 ----
 
-## STRETCH GOALS (*my selective of choices*)
+## STRETCH GOALS (*My choice selection*)
 1. [x] Practice git branching with each of the task listed above 
 
 2. [x] Style with bootstrap 
@@ -80,32 +80,32 @@
 ---
 
 ## setups:
-1. installation
+1. **installation**
     - [x] npm init -y (if package JSON IS NOT present on repo)
     - [x] npm install express
     - [x] npm install pg
     - [x] npm install nodemon (optional)
 
-2. folders
-   [x] - `server/`
-       [x] - `modules/`
-           [x] - pool.js
-       [x] - server.js
-       [x] - `routers/`
-           [] - name.router.js
+2. **folders structure**
+   - `server/` 
+        - `modules/`
+           - pool.js
+    - server.js
+       - `routers/`
+            - task.router.js
     
-   [x] - `public/` 
-       [x] - `css/`
-           [x] - styles.css 
-       [x] - html (index)
-       [x] - `script/` 
-           [x] - client.js
-       [x] - `vendors/`
-            [x]- jQuery 
+    - `public/`
+        - html (index) 
+        - `css/`
+            - styles.css 
+        - `script/` 
+           - client.js
+        - `vendors/`
+           - jQuery 
 
-3. `database.sql` [x]
+3. `database.sql` (root)
 
-4. `.gitignore` 
+4. `.gitignore`  (root)
     - node_modules/
     - *.log
     - .DS_Store

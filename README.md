@@ -8,7 +8,7 @@ My task list application will create a front-end experience for task management.
 
 >**TABLE OF CONTENT:**
 1. [Tasks & Installations](/todo.md)
-1. [Screen shot](#screen-shot)
+1. [Application Demo](#demo)
 1. [Technologies utilization](#technologies-utilization) 
 1. [Support](#support)
 
