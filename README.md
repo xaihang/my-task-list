@@ -8,6 +8,7 @@ My task list application will create a front-end experience for task management.
 
 >**TABLE OF CONTENT:**
 1. [Tasks & Installations](/todo.md)
+1. [Deloyed Link](#deployed-link)
 1. [Application Demo](#demo)
 1. [Technologies utilization](#technologies-utilization) 
 1. [Support](#support)
@@ -15,6 +16,13 @@ My task list application will create a front-end experience for task management.
 </br>
 
 ----
+
+## Deployed link 
+Hosted by Heroku & database provider bit.io:
+Please visit the site to view its full functionality: [DEPLOYED VERSION OF APP](https://weekend-todo-taskist.herokuapp.com/)
+
+--- 
+
 ## Demo
 
 ![To-do application demo](/server/public/images/screenshot.gif)
@@ -37,6 +45,7 @@ My task list application will create a front-end experience for task management.
 * [Postman](https://www.postman.com/)
 * [GitHub](https://github.com/xaihang/) 
 * [Heroku](https://www.heroku.com/about) 
+* [bio.io](https://bit.io/)
 
 ---
 ## Support

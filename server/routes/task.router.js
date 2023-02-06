@@ -27,7 +27,7 @@ router.post('/add-task', (req, res) => {
 // GET: grabbing task list from database
 router.get('/get-task-list', (req, res) => {
   // insert this code to grab the tasks from the db
-  let queryText = 'SELECT * FROM "tasks";';
+  let queryText = 'SELECT * FROM "tasks" ORDER BY "id";';
 
   pool
     .query(queryText)
